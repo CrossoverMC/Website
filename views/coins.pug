@@ -1,0 +1,42 @@
+extends head.pug
+
+block assets
+  link(rel="stylesheet" href="/stylesheets/pages/coins.css")
+
+block body
+  .p16
+    h1 Buy Coins
+
+    .spacer.v20
+    img#profile-picture
+
+    a.def(href="/") Home
+
+    .spacer.v20
+
+    #views
+      .view(data-view="0")
+        p Minecraft Username
+
+        .spacer.v10
+
+        input#username-input(type="text")
+        button#submit-username.def Next
+      .view(data-view="1")
+        .products-container
+          button.def(onclick="productSelected(0)") 10 Coins
+          button.def(onclick="productSelected(1)") 20 Coins
+          button.def(onclick="productSelected(2)") 50 Coins
+          button.def(onclick="productSelected(3)") 100 Coins
+      .view(data-view="2")
+        h2 Pay
+        p#product-info
+
+        .spacer.v20
+
+        #paypal-button-container
+
+    p#info-element.invisible
+
+  script(src="/javascripts/coins.js")
+  script(src=`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=USD` onload="onPaypalLoad()")

@@ -1,0 +1,22 @@
+@import "../global";
+
+.products-container {
+    column-gap: 20px;
+    display: flex;
+}
+
+#profile-picture {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#info-element,
+#submit-username {
+    display: block;
+    margin-top: 20px;
+}
+
+#username-input {
+    padding: 4px;
+}

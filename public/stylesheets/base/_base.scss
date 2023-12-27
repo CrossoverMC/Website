@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.def {
+    background-color: $color-primary-400;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $color-primary-300;
+    }
+}

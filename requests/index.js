@@ -1,5 +1,4 @@
 import express from "express"
-import { write } from "../server/writer.js"
 import ordersRouter from "./orders.js"
 
 const router = express.Router()

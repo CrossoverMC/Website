@@ -30,10 +30,22 @@ async function generateAccessToken() {
 }
 
 const coinPackages = {
-    0: 10,
-    1: 20,
-    2: 50,
-    3: 100
+    0: {
+        amount: 10,
+        price: 1.0
+    },
+    1: {
+        amount: 20,
+        price: 2.0
+    },
+    2: {
+        amount: 50,
+        price: 5.0
+    },
+    3: {
+        amount: 100,
+        price: 10.0
+    }
 }
 
 function isValidProductId(id) {
@@ -45,9 +57,7 @@ function isValidProductId(id) {
 }
 
 async function createOrder(productId) {
-    const totalCoins = coinPackages[productId]
-    const coinPrice = 0.1
-    const totalPrice = totalCoins * coinPrice
+    const { amount: totalCoins, price: totalPrice } = coinPackages[productId]
 
     const purchaseUnits = [
         {
@@ -136,9 +146,9 @@ async function handleResponse(response) {
 }
 
 function handlePurchasedItem(productId, minecraftUuid) {
-    console.log("purchased:", productId, minecraftUuid)
-    const coinAmount = coinPackages[productId]
-    write(`add_coins ${minecraftUuid} ${coinAmount}`)
+    const { amount, price } = coinPackages[productId]
+    write(`add_coins ${minecraftUuid} ${amount}`)
+    write(`add_purchase ${price}`)
 }
 
 function shortToLongUuid(shortUuid) {

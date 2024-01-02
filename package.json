@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "s": "node index",
-    "d": "nodemon index"
+    "d": "nodemon index-dev"
   },
   "author": "",
   "license": "ISC",

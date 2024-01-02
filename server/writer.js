@@ -1,4 +1,7 @@
 import fs from "fs"
+import config from "../config.json" assert {type: "json"}
+
+const { JS_TO_JAVA_PATH } = config
 
 const delay = millis => new Promise(r => setTimeout(r, millis))
 const toWrite = []
@@ -12,7 +15,7 @@ function attemptWrite() {
     if (toWrite.length > 0) data += "\n"
 
     try {
-        const fileDescriptor = fs.openSync("C:/Users/Zippy/Desktop/js-to-java.txt", "a")
+        const fileDescriptor = fs.openSync(JS_TO_JAVA_PATH, "a")
         fs.writeFileSync(fileDescriptor, data)
         fs.closeSync(fileDescriptor) // release lock
         toWrite.length = 0

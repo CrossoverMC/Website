@@ -17,9 +17,9 @@ app.use(express.json())
 app.use("/", renderRouter)
 app.use("/requests", requestsRouter)
 
-const options = {
-    key: fs.readFileSync("/etc/letsencrypt/live/crossovermc.store/privkey.pem"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/crossovermc.store/fullchain.pem")
+const options = { // certificate includes both domains
+    key: fs.readFileSync("/etc/letsencrypt/live/opawards.treverton.co.za/privkey.pem"),
+    cert: fs.readFileSync("/etc/letsencrypt/live/opawards.treverton.co.za/fullchain.pem")
 }
 
 https.createServer(options, app).listen(PORT, () => {
